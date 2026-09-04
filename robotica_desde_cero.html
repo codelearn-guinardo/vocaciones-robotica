@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apuntes de Robótica</title>
+  <style>
+    :root {
+      --bg: #f7f8fc;
+      --surface: #fff;
+      --text: #172033;
+      --muted: #526074;
+      --primary: #3157d5;
+      --primary-dark: #203c9e;
+      --border: #cbd3df;
+      --accent: #e6b93f;
+      --max: 1100px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+    a { color: var(--primary-dark); }
+    a:focus-visible, button:focus-visible, summary:focus-visible {
+      outline: 3px solid #111827;
+      outline-offset: 3px;
+    }
+    header {
+      background: #182a66;
+      color: white;
+      padding: 2.5rem 1rem;
+    }
+    header .inner, main, footer .inner {
+      max-width: var(--max);
+      margin: auto;
+    }
+    h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); margin: 0; }
+    h2 { font-size: 2rem; margin-top: 0; }
+    h3 { font-size: 1.3rem; }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: white;
+      border-bottom: 1px solid var(--border);
+    }
+    nav .inner {
+      max-width: var(--max);
+      margin: auto;
+      display: flex;
+      gap: .4rem;
+      overflow-x: auto;
+      padding: .65rem 1rem;
+    }
+    nav a {
+      white-space: nowrap;
+      text-decoration: none;
+      font-weight: 700;
+      padding: .65rem .85rem;
+      border-radius: 9px;
+    }
+    nav a:hover { background: #eef2f8; }
+    main { padding: 2rem 1rem 5rem; }
+    section {
+      scroll-margin-top: 75px;
+      margin-bottom: 4rem;
+    }
+    .intro {
+      color: var(--muted);
+      max-width: 850px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 1.25rem;
+    }
+    .callout {
+      background: #fffdf5;
+      border-left: 6px solid var(--accent);
+      padding: 1rem 1.2rem;
+      margin: 1.25rem 0;
+    }
+    .example {
+      background: #f1f4fb;
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+    }
+    .exercise {
+      border: 2px solid var(--primary);
+      background: #f5f7ff;
+    }
+    code {
+      background: #e9edf5;
+      border-radius: 5px;
+      padding: .1rem .35rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    pre {
+      background: #111827;
+      color: #f8fafc;
+      padding: 1rem;
+      border-radius: 10px;
+      overflow-x: auto;
+    }
+    details {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: .8rem 1rem;
+      margin: .7rem 0;
+    }
+    summary { cursor: pointer; font-weight: 750; }
+    footer {
+      background: #182033;
+      color: #e9edf5;
+      padding: 2rem 1rem;
+    }
+    @media (max-width: 800px) {
+      .grid { grid-template-columns: 1fr; }
+      body { font-size: 16px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="inner">
+      <h1>Apuntes de Robótica</h1>
+    </div>
+  </header>
+
+  <nav aria-label="Navegación principal">
+    <div class="inner">
+      <a href="#introduccion">Introducción</a>
+      <a href="#makey-makey">Makey Makey</a>
+      <a href="#microbit">micro:bit</a>
+      <a href="#arduino">Arduino</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <section id="introduccion">
+      <h2>Introducción</h2>
+      <p class="intro">
+        La robótica combina mecánica, electrónica y programación para crear
+        sistemas capaces de recibir información, procesarla y realizar acciones.
+      </p>
+
+      <div class="callout">
+        <strong>Una forma sencilla de entenderlo:</strong>
+        piensa en una persona que recibe un mensaje, decide qué hacer y actúa.
+        Un sistema robótico funciona de forma parecida:
+        <strong>entrada → procesamiento → salida</strong>.
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Entrada</h3>
+          <p>
+            Es la información que recibe el sistema. Puede proceder de un botón,
+            un sensor de luz, un sensor de distancia, un micrófono o un detector
+            de movimiento.
+          </p>
+          <div class="example">
+            <strong>Metáfora:</strong> son los sentidos del sistema. Igual que una
+            persona ve que una puerta está abierta, un sensor puede detectar esa
+            situación.
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Procesamiento</h3>
+          <p>
+            Es la parte que interpreta la información y decide qué hacer. Una
+            placa electrónica ejecuta el programa que hemos creado.
+          </p>
+          <div class="example">
+            <strong>Metáfora:</strong> es como el cerebro siguiendo unas
+            instrucciones: “si ocurre esto, haz aquello”.
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Salida</h3>
+          <p>
+            Es la acción que realiza el sistema: encender un LED, emitir un sonido,
+            mover un motor o mostrar un mensaje.
+          </p>
+          <div class="example">
+            <strong>Metáfora:</strong> es la respuesta del sistema, como cuando
+            una persona escucha el timbre y abre la puerta.
+          </div>
+        </article>
+      </div>
+
+      <h3>Conceptos básicos</h3>
+      <ul>
+        <li><strong>Algoritmo:</strong> conjunto ordenado de pasos para resolver una tarea.</li>
+        <li><strong>Programa:</strong> instrucciones que puede ejecutar una máquina.</li>
+        <li><strong>Sensor:</strong> componente que detecta algo del entorno.</li>
+        <li><strong>Actuador:</strong> componente que realiza una acción.</li>
+        <li><strong>Variable:</strong> espacio donde guardamos un dato que puede cambiar.</li>
+        <li><strong>Condición:</strong> permite decidir entre diferentes acciones.</li>
+        <li><strong>Bucle:</strong> permite repetir instrucciones.</li>
+        <li><strong>Prototipo:</strong> primera versión de una idea que utilizamos para probarla.</li>
+        <li><strong>Depuración:</strong> localizar y corregir errores.</li>
+      </ul>
+
+      <div class="example">
+        <strong>Ejemplo cotidiano de algoritmo:</strong>
+        preparar un vaso de agua puede describirse paso a paso:
+        coger el vaso → abrir el grifo → llenar el vaso → cerrar el grifo.
+        Un programa hace algo parecido, pero con instrucciones que entiende la máquina.
+      </div>
+    </section>
+
+    <section id="makey-makey">
+      <h2>Makey Makey</h2>
+      <p class="intro">
+        Makey Makey permite utilizar objetos conductores como controles de un
+        ordenador. Es una forma sencilla de experimentar con circuitos,
+        entradas e interacción.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <h3>¿Cómo funciona?</h3>
+          <p>
+            Cuando tocamos un objeto conectado a Makey Makey y completamos el
+            circuito, la placa envía una señal al ordenador.
+          </p>
+          <div class="example">
+            <strong>Metáfora:</strong> imagina un timbre. Al pulsarlo se cierra
+            un circuito y el timbre suena. Makey Makey utiliza una idea parecida
+            para detectar una interacción.
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Materiales</h3>
+          <p>
+            Podemos utilizar papel de aluminio, plastilina conductora, monedas
+            y otros materiales que permitan conducir electricidad.
+          </p>
+          <div class="example">
+            <strong>Ejemplo:</strong> una banana puede convertirse en un botón
+            para controlar una aplicación si forma parte del circuito.
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Qué aprendemos</h3>
+          <ul>
+            <li>Qué es una entrada.</li>
+            <li>Qué significa cerrar un circuito.</li>
+            <li>Cómo una acción física puede producir una respuesta digital.</li>
+            <li>Cómo diseñar controles sencillos.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="card exercise">
+        <h3>Actividad: piano de objetos</h3>
+        <ol>
+          <li>Conecta Makey Makey al ordenador.</li>
+          <li>Prepara varios objetos conductores.</li>
+          <li>Asigna una tecla diferente a cada objeto.</li>
+          <li>Haz que cada tecla produzca una nota distinta.</li>
+          <li>Prueba diferentes objetos y comprueba cuáles funcionan mejor.</li>
+        </ol>
+      </div>
+
+      <div class="example">
+        <strong>Para pensar:</strong>
+        si una puerta automática detecta que alguien se acerca y después abre la
+        puerta, ¿cuál sería la entrada, cuál el procesamiento y cuál la salida?
+      </div>
+    </section>
+
+    <section id="microbit">
+      <h2>micro:bit</h2>
+      <p class="intro">
+        micro:bit es una pequeña placa programable que permite trabajar con
+        botones, sensores, LEDs y otros componentes.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Entradas</h3>
+          <p>
+            Los botones y sensores proporcionan información al programa.
+          </p>
+          <div class="example">
+            <strong>Metáfora:</strong> son como los sentidos de una máquina:
+            permiten saber qué está pasando.
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Salidas</h3>
+          <p>
+            La matriz de LEDs y otros componentes permiten mostrar o producir
+            una respuesta.
+          </p>
+          <div class="example">
+            <strong>Metáfora:</strong> son como las manos o la voz de la máquina:
+            sirven para expresar una respuesta.
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Programación</h3>
+          <p>
+            Podemos comenzar con programación visual por bloques para trabajar
+            eventos, variables, condiciones y bucles.
+          </p>
+        </article>
+      </div>
+
+      <h3>Algoritmos antes que código</h3>
+      <div class="example">
+        <p><strong>Objetivo:</strong> mostrar una cara cuando se pulse el botón A.</p>
+        <ol>
+          <li>Esperar a que se pulse A.</li>
+          <li>Mostrar una cara feliz.</li>
+          <li>Esperar un segundo.</li>
+          <li>Borrar la pantalla.</li>
+        </ol>
+        <p>
+          Este algoritmo es como una receta. Primero definimos los pasos y después
+          los convertimos en instrucciones que micro:bit pueda ejecutar.
+        </p>
+      </div>
+
+      <div class="card exercise">
+        <h3>Actividad: contador</h3>
+        <p>
+          Crea un programa que aumente un número cada vez que se pulse el botón A.
+        </p>
+        <h4>Conceptos</h4>
+        <ul>
+          <li>Evento.</li>
+          <li>Variable.</li>
+          <li>Incremento.</li>
+          <li>Mostrar información.</li>
+        </ul>
+        <h4>Para ampliar</h4>
+        <p>
+          Utiliza el botón B para reducir el número y A+B para volver a cero.
+        </p>
+      </div>
+
+      <details>
+        <summary>Ejemplo de condición</summary>
+        <p>
+          “Si la temperatura es mayor que 25 °C, mostrar un símbolo de calor;
+          si no, mostrar un símbolo diferente”.
+        </p>
+        <p>
+          Es como decidir qué ropa ponerse: si hace frío, abrigo; si hace calor,
+          ropa ligera.
+        </p>
+      </details>
+
+      <details>
+        <summary>Ejemplo de bucle</summary>
+        <p>
+          “Encender el LED → esperar → apagar el LED → esperar” y repetir.
+        </p>
+        <p>
+          Es como una canción que vuelve a empezar cuando llega al final.
+        </p>
+      </details>
+    </section>
+
+    <section id="arduino">
+      <h2>Arduino</h2>
+      <p class="intro">
+        Arduino permite crear sistemas electrónicos conectando componentes a una
+        placa y programando su comportamiento.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Componentes</h3>
+          <ul>
+            <li>Placa Arduino.</li>
+            <li>Protoboard.</li>
+            <li>LEDs.</li>
+            <li>Resistencias.</li>
+            <li>Botones.</li>
+            <li>Sensores.</li>
+            <li>Motores y otros actuadores.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Protoboard</h3>
+          <p>
+            Permite montar circuitos sin soldar, facilitando las pruebas y los
+            cambios.
+          </p>
+          <div class="example">
+            <strong>Metáfora:</strong> es como una mesa de trabajo con piezas que
+            podemos conectar, separar y reorganizar mientras construimos.
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Entradas y salidas</h3>
+          <p>
+            Arduino puede leer información de sensores y controlar LEDs, motores,
+            zumbadores y otros dispositivos.
+          </p>
+          <div class="example">
+            <strong>Metáfora:</strong> el sensor avisa de lo que ocurre, Arduino
+            toma la decisión y el actuador ejecuta la respuesta.
+          </div>
+        </article>
+      </div>
+
+      <h3>Primer programa: LED intermitente</h3>
+      <pre><code>void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(500);
+
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(500);
+}</code></pre>
+
+      <div class="example">
+        <strong>Qué ocurre:</strong>
+        Arduino enciende el LED, espera medio segundo, lo apaga, espera otro
+        medio segundo y repite el proceso.
+        Es como encender y apagar una lámpara siguiendo un reloj.
+      </div>
+
+      <h3>Componentes y seguridad</h3>
+      <ul>
+        <li>Comprueba siempre dónde debe conectarse cada componente.</li>
+        <li>Respeta la polaridad de componentes que la tengan.</li>
+        <li>Utiliza resistencias adecuadas para proteger los LEDs.</li>
+        <li>Evita realizar conexiones al azar.</li>
+        <li>Antes de modificar un circuito, desconecta la alimentación cuando corresponda.</li>
+      </ul>
+
+      <div class="card exercise">
+        <h3>Actividad: sistema de aviso</h3>
+        <p>
+          Construye un sistema que detecte una situación mediante un botón o
+          sensor y produzca una respuesta mediante un LED, un sonido u otro
+          actuador.
+        </p>
+        <ol>
+          <li>Define qué quieres detectar.</li>
+          <li>Elige la entrada.</li>
+          <li>Decide qué debe ocurrir.</li>
+          <li>Elige la salida.</li>
+          <li>Construye el circuito.</li>
+          <li>Programa el comportamiento.</li>
+          <li>Prueba y corrige los errores.</li>
+        </ol>
+      </div>
+
+      <div class="example">
+        <strong>Ejemplo cotidiano:</strong>
+        una luz automática de un pasillo puede detectar movimiento.
+        El sensor sería la entrada, Arduino tomaría la decisión y la lámpara
+        sería la salida.
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="inner">
+      <p>Apuntes de Robótica · Introducción · Makey Makey · micro:bit · Arduino</p>
+    </div>
+  </footer>
+</body>
+</html>
