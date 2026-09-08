@@ -10,7 +10,8 @@
 <body>
   <header>
     <div class="inner">
-      <h1>Apuntes de Robótica</h1>
+      <h1>Vocaciones Robótica</h1>
+      <h2>Bloque Robótica</h2>
     </div>
   </header>
 
@@ -18,78 +19,73 @@
     <div class="inner">
       <a href="#introduccion">Introducción</a>
       <a href="#makey-makey">Makey Makey</a>
-      <a href="#microbit">micro:bit</a>
+      <a href="#microbit">Micro:bit</a>
       <a href="#arduino">Arduino</a>
     </div>
   </nav>
 
   <main>
-
-    <section id="introduccion">
+    <section id="introduccion" class="active">
       <h2>Introducción</h2>
       <p class="intro">
-        La robótica combina mecánica, electrónica y programación para crear
-        sistemas capaces de recibir información, procesarla y realizar acciones.
-      </p>
-
+La robótica es la rama de la tecnología que se encarga de diseñar, construir y programar robots, es decir, máquinas capaces de realizar tareas físicas de forma automática o semiautomáticas.      </p>
+<p>Es el resultado de combinar la electrónica, mecánica y programación.</p>
       <div class="callout">
         <strong>Una forma sencilla de entenderlo:</strong>
-        piensa en una persona que recibe un mensaje, decide qué hacer y actúa.
-        Un sistema robótico funciona de forma parecida:
-        <strong>entrada → procesamiento → salida</strong>.
+        Cuando vimos que en programación un programa recibía datos, realizaba un proceso y generaba un resultado o efecto.<br>
+        En este caso funciona de una forma análoga: El robot recibe una señal del entorno, realiza un procesamiento y desarrolla una acción.
+        <strong>señal → procesamiento → acción</strong>.
       </div>
 
       <div class="grid">
         <article class="card">
-          <h3>Entrada</h3>
+          <h3>Señal</h3>
           <p>
-            Es la información que recibe el sistema. Puede proceder de un botón,
-            un sensor de luz, un sensor de distancia, un micrófono o un detector
-            de movimiento.
+            Es la información que percibe del entorno el robot a través de un sensor.
+            Un sensor es un dispositivo mediante el cual se puede percibir una señal del entorno y traducirla a una señal eléctrica. 
           </p>
           <div class="example">
             <strong>Metáfora:</strong> son los sentidos del sistema. Igual que una
-            persona ve que una puerta está abierta, un sensor puede detectar esa
-            situación.
+            persona puede ver cuando una puerta se abre, un sensor puede detectar eso mismo.
           </div>
         </article>
 
         <article class="card">
           <h3>Procesamiento</h3>
           <p>
-            Es la parte que interpreta la información y decide qué hacer. Una
-            placa electrónica ejecuta el programa que hemos creado.
+            Al percibirse una señal del entorno, el procesamiento es el conjunto de operaciones que realiza internamente el robot con dicha señal.
+            El procesamiento que se realice viene dado por cómo esté programado el robot.
           </p>
           <div class="example">
-            <strong>Metáfora:</strong> es como el cerebro siguiendo unas
-            instrucciones: “si ocurre esto, haz aquello”.
+            <strong>Metáfora:</strong> El sistema reacciona a cuando recibe la señal y procesa dicha información.
+            Por ejemplo, una persona al recibir una llamada telefónica primero mira el número o contacto que le está llamando, y en base a ello toma una decisión de qué hacer.
           </div>
         </article>
 
         <article class="card">
-          <h3>Salida</h3>
+          <h3>Acción</h3>
           <p>
-            Es la acción que realiza el sistema: encender un LED, emitir un sonido,
-            mover un motor o mostrar un mensaje.
+            El procesador del robot envía una señal eléctrica al elemento actuador correspondiente, accionándolo.
+            Un actuador es cualquier elemento conectado a la placa base del robot que puede ser accionado por una señal eléctrica para realizar un trabajo físico.
+            Dicho trabajo puede ir desde emitir luz o sonido hasta mover una pieza articulada o enviar señales a otro dispositivo.
           </p>
           <div class="example">
-            <strong>Metáfora:</strong> es la respuesta del sistema, como cuando
-            una persona escucha el timbre y abre la puerta.
+            <strong>Metáfora:</strong> La acción de descolgar el teléfono y abrir la agenda después de procesar la recepción de la llamada.
           </div>
         </article>
       </div>
 
-      <h3>Conceptos básicos</h3>
+      <h3>Conceptos a recordar</h3>
       <ul>
-        <li><strong>Algoritmo:</strong> conjunto ordenado de pasos para resolver una tarea.</li>
-        <li><strong>Programa:</strong> instrucciones que puede ejecutar una máquina.</li>
-        <li><strong>Sensor:</strong> componente que detecta algo del entorno.</li>
-        <li><strong>Actuador:</strong> componente que realiza una acción.</li>
-        <li><strong>Variable:</strong> espacio donde guardamos un dato que puede cambiar.</li>
-        <li><strong>Condición:</strong> permite decidir entre diferentes acciones.</li>
-        <li><strong>Bucle:</strong> permite repetir instrucciones.</li>
-        <li><strong>Prototipo:</strong> primera versión de una idea que utilizamos para probarla.</li>
-        <li><strong>Depuración:</strong> localizar y corregir errores.</li>
+        <li><strong>Algoritmo:</strong> conjunto ordenado, finito y no ambiguo de pasos para resolver una tarea.</li>
+        <li><strong>Programa:</strong> instrucciones que puede ejecutar una máquina. Es el resultado de codificar un algoritmo mediante un lenguaje de programación.</li>
+        <li><strong>Sensor:</strong> componente que detecta una señal del entorno y la traduce a una señal eléctrica.</li>
+        <li><strong>Actuador:</strong> componente que realiza una acción al recibir una señal eléctrica.</li>
+        <li><strong>Variable:</strong> espacio en memoria donde guardamos un dato que puede usarse o cambiar en otro momento de la ejecución de un programa.</li>
+        <li><strong>Derivación condicional:</strong> Permite ejecutar una o varias instrucciones en base al cumplimiento de una condición o valor lógico.</li>
+        <li><strong>Bucle:</strong> Permite ejecutar una o varias acciones varias veces.</li>
+        <li><strong>Prototipo:</strong> primera versión de la implementación de una idea que utilizamos para probarla.</li>
+        <li><strong>Depuración:</strong> Proceso de monitorización de la ejecución de un programa con el objetivo de detectar y corregir errores o bugs. Se puede ver la ejecución paso a paso y el valor de las variables en todo momento, con tal de detectar inconsistencias.</li>
       </ul>
 
       <div class="example">
@@ -103,8 +99,8 @@
     <section id="makey-makey">
       <h2>Makey Makey</h2>
       <p class="intro">
-        Makey Makey permite utilizar objetos conductores como controles de un
-        ordenador. Es una forma sencilla de experimentar con circuitos,
+        Makey Makey es una placa electrónica basada en Arduino que funciona como un emulador de teclado y ratón, permitiendo convertir cualquier objeto conductor en un controlador interactivo para el ordenador.
+        Es una forma sencilla de experimentar con circuitos,
         entradas e interacción.
       </p>
 
@@ -135,31 +131,37 @@
         </article>
 
         <article class="card">
-          <h3>Qué aprendemos</h3>
+          <h3>Para las actividades</h3>
           <ul>
-            <li>Qué es una entrada.</li>
-            <li>Qué significa cerrar un circuito.</li>
-            <li>Cómo una acción física puede producir una respuesta digital.</li>
-            <li>Cómo diseñar controles sencillos.</li>
+            <li>Haremos grupos de 2 para compartir los makey makey.</li>
+            <li>Leed con atención las instrucciones de las actividades y realizar el análisis en conjunto.</li>
+            <li>Recuerda que para que funcione tienes que cerrar el circuito.</li>
+            <li>Si una actividad resulta muy complicada, pasa a la siguiente.</li>
+            <li>No es necesario que resuelvas todas las actividades propuestas.</li>
           </ul>
         </article>
       </div>
 
       <div class="card exercise">
-        <h3>Actividad: piano de objetos</h3>
+        <h3>Actividad Mk1: piano</h3>
         <ol>
-          <li>Conecta Makey Makey al ordenador.</li>
-          <li>Prepara varios objetos conductores.</li>
-          <li>Asigna una tecla diferente a cada objeto.</li>
-          <li>Haz que cada tecla produzca una nota distinta.</li>
-          <li>Prueba diferentes objetos y comprueba cuáles funcionan mejor.</li>
+          <li>Crea un nuevo proyecto de Scratch.</li>
+          <li>Añade las extensiones "Música" y "Makey makey".</li>
+          <li>Crea un teclado de 6 teclas utilizando cartón y paple de aluminio, conectándolo a la placa de forma adecuada usando los cables con pinza.</li>
+          <li>Al pulsar cada una de las teclas debe producirse un sonido distinto.</li>
+          <li>Opcional: Añade un control adicional para cambiar de sonido de instrumento.</li>
         </ol>
       </div>
 
-      <div class="example">
-        <strong>Para pensar:</strong>
-        si una puerta automática detecta que alguien se acerca y después abre la
-        puerta, ¿cuál sería la entrada, cuál el procesamiento y cuál la salida?
+      <div class="card exercise">
+        <h3>Actividad Mk2: Juego de naves</h3>
+        <ol>
+          <li>Crea un nuevo proyecto de Scratch.</li>
+          <li>Añade la extensión "Makey makey".</li>
+          <li>Crea un mando de 3 botones (2 flechas + botón de acción) utilizando cartón y papel de aluminio, conectándolo a la placa de forma adecuada usando los cables con pinza.</li>
+          <li>Crea un juego en el que una nave espacial se pueda mover lateralmente con las flechas y pueda disparar con el botón de acción. Solamente se permite un disparo a la vez y por segundo.</li>
+          <li>Opcional: Haz que cada X segundos aparezca un alien. Los aliens deben desaparecer después de recibir 3 disparos.</li>
+        </ol>
       </div>
     </section>
 
@@ -219,21 +221,46 @@
       </div>
 
       <div class="card exercise">
-        <h3>Actividad: contador</h3>
+        <h3>Actividad Bt1: Contador</h3>
         <p>
-          Crea un programa que aumente un número cada vez que se pulse el botón A.
+          Crea un programa que maneja un contador.
         </p>
-        <h4>Conceptos</h4>
         <ul>
-          <li>Evento.</li>
-          <li>Variable.</li>
-          <li>Incremento.</li>
-          <li>Mostrar información.</li>
+          <li>EL valor del contador comienza en 0.</li>
+          <li>Al pulsar A se incrementa el valor del contador en 1.</li>
+          <li>Al pulsar B se reduce el valor del contador en 1.</li>
+          <li>Al pulsar A+B se reinicia el valor del contador.</li>
+          <li>En todo momento se debe mostrar el valor actual del contador por pantalla.</li>
+          <li>El valor del contador se encontrará en todo momento entre 0 y 9.</li>
         </ul>
-        <h4>Para ampliar</h4>
+   
+      </div>
+
+      <div class="card exercise">
+        <h3>Actividad Bt2: Dado</h3>
         <p>
-          Utiliza el botón B para reducir el número y A+B para volver a cero.
+          Crea un programa que permita simular tiradas de dado de 6 caras.
         </p>
+        <ul>
+          <li>Al agitar la placa microbit, realiza la tirada, obtiene un número aleatorio y muestra por pantalla un dibujo distinto según el resultado.</li>
+          <li>En el caso de sacar un 6, se reproduce un sonido de celebración.</li>
+          <li>AL transcurrir 5 segundos después de la tirada, se borra la pantalla y se reproduce un sonido muy breve como aviso.</li>
+          <li>Solamente se puede realizar una tirada mientras la pantalla esté limpia.</li>
+        </ul>
+   
+      </div>
+      <div class="card exercise">
+        <h3>Actividad Bt3: Termómetro</h3>
+        <p>
+          Crea un programa que permita mostrar la temperatura actual.
+        </p>
+        <ul>
+          <li>Al colocar la placa en posición vertical, la placa realiza una lectura de temperatura y la muestra por pantalla.</li>
+          <li>En el caso de sacar un 6, se reproduce un sonido de celebración.</li>
+          <li>AL transcurrir 5 segundos después de la tirada, se borra la pantalla y se reproduce un sonido muy breve como aviso.</li>
+          <li>Solamente se puede realizar una tirada mientras la pantalla esté limpia.</li>
+        </ul>
+   
       </div>
 
       <details>
@@ -266,46 +293,53 @@
         placa y programando su comportamiento.
       </p>
 
-      <div class="grid">
-        <article class="card">
-          <h3>Componentes</h3>
-          <ul>
-            <li>Placa Arduino.</li>
-            <li>Protoboard.</li>
-            <li>LEDs.</li>
-            <li>Resistencias.</li>
-            <li>Botones.</li>
-            <li>Sensores.</li>
-            <li>Motores y otros actuadores.</li>
-          </ul>
-        </article>
+      <h3>Componentes</h3>
+          <div class="component-grid">
+            <article class="component-card">
+              <div class="component-image component-arduino">🧩</div>
+              <h4>Placa Arduino</h4>
+              <p>Es el cerebro del proyecto: recibe señales, procesa datos y controla dispositivos conectados.</p>
+            </article>
 
-        <article class="card">
-          <h3>Protoboard</h3>
-          <p>
-            Permite montar circuitos sin soldar, facilitando las pruebas y los
-            cambios.
-          </p>
-          <div class="example">
-            <strong>Metáfora:</strong> es como una mesa de trabajo con piezas que
-            podemos conectar, separar y reorganizar mientras construimos.
+            <article class="component-card">
+              <div class="component-image component-protoboard">🔌</div>
+              <h4>Protoboard</h4>
+              <p>Permite montar y probar circuitos sin soldar, conectando componentes de forma rápida y reversible.</p>
+            </article>
+
+            <article class="component-card">
+              <div class="component-image component-led">💡</div>
+              <h4>LED</h4>
+              <p>Emite luz cuando recibe corriente y se usa para mostrar estados, alertas o señales visuales.</p>
+            </article>
+
+            <article class="component-card">
+              <div class="component-image component-resistor">⚡</div>
+              <h4>Resistencia</h4>
+              <p>Limita la corriente que pasa por un circuito y ayuda a proteger componentes sensibles.</p>
+            </article>
+
+            <article class="component-card">
+              <div class="component-image component-button">🕹️</div>
+              <h4>Botón</h4>
+              <p>Actúa como entrada: cuando se pulsa, cambia la dirección del circuito, permitiendo desencadenar acciones.</p>
+            </article>
+
+            <article class="component-card">
+              <div class="component-image component-sensor">📡</div>
+              <h4>Sensor</h4>
+              <p>Detecta condiciones del entorno como luz, temperatura, movimiento o proximidad.</p>
+            </article>
+
+            <article class="component-card">
+              <div class="component-image component-motor">⚙️</div>
+              <h4>Motor</h4>
+              <p>Convierte energía eléctrica en movimiento para empujar, girar o hacer funcionar mecanismos.</p>
+            </article>
           </div>
-        </article>
 
-        <article class="card">
-          <h3>Entradas y salidas</h3>
-          <p>
-            Arduino puede leer información de sensores y controlar LEDs, motores,
-            zumbadores y otros dispositivos.
-          </p>
-          <div class="example">
-            <strong>Metáfora:</strong> el sensor avisa de lo que ocurre, Arduino
-            toma la decisión y el actuador ejecuta la respuesta.
-          </div>
-        </article>
-      </div>
 
-      <h3>Primer programa: LED intermitente</h3>
+      <h3>Ejemplo de programa Arduino en C++: LED intermitente</h3>
       <pre><code>void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
 }
@@ -364,8 +398,103 @@ void loop() {
 
   <footer>
     <div class="inner">
-      <p>Apuntes de Robótica · Introducción · Makey Makey · micro:bit · Arduino</p>
+      <p>---</p>
     </div>
   </footer>
+
+  <script>
+    const sections = Array.from(document.querySelectorAll('main section'));
+    const navLinks = Array.from(document.querySelectorAll('nav a'));
+
+    function setupExerciseTabs() {
+      document.querySelectorAll('main section').forEach((section) => {
+        const exercises = Array.from(section.querySelectorAll('.exercise'));
+        if (exercises.length === 0) return;
+        const exerciseParent = exercises[0].parentNode;
+
+        const tabs = document.createElement('div');
+        const tabList = document.createElement('div');
+        const exercisePanels = document.createElement('div');
+
+        tabs.className = 'exercise-tabs';
+        tabList.className = 'exercise-tablist';
+        exercisePanels.className = 'exercise-panels';
+        tabList.setAttribute('role', 'tablist');
+        tabList.setAttribute('aria-label', 'Actividades');
+        exerciseParent.insertBefore(tabs, exercises[0]);
+
+        exercises.forEach((exercise, index) => {
+          const heading = exercise.querySelector('h3');
+          const tabId = `${section.id}-activity-tab-${index + 1}`;
+          const panelId = `${section.id}-activity-panel-${index + 1}`;
+          const tab = document.createElement('button');
+
+          tab.type = 'button';
+          tab.className = 'exercise-tab';
+          tab.id = tabId;
+          tab.textContent = heading ? heading.textContent : `Actividad ${index + 1}`;
+          tab.setAttribute('role', 'tab');
+          tab.setAttribute('aria-controls', panelId);
+          tab.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+          tab.tabIndex = index === 0 ? 0 : -1;
+
+          exercise.classList.add('exercise-panel');
+          exercise.id = panelId;
+          exercise.setAttribute('role', 'tabpanel');
+          exercise.setAttribute('aria-labelledby', tabId);
+          exercise.hidden = index !== 0;
+
+          tab.addEventListener('click', () => {
+            exercises.forEach((panel, panelIndex) => {
+              const isActive = panelIndex === index;
+              panel.hidden = !isActive;
+              tabList.children[panelIndex].classList.toggle('active', isActive);
+              tabList.children[panelIndex].setAttribute('aria-selected', isActive ? 'true' : 'false');
+              tabList.children[panelIndex].tabIndex = isActive ? 0 : -1;
+            });
+          });
+
+          tabList.appendChild(tab);
+          exercisePanels.appendChild(exercise);
+        });
+
+        tabList.firstElementChild.classList.add('active');
+        tabs.append(tabList, exercisePanels);
+      });
+    }
+
+    function showSection(hash) {
+      const targetId = hash.startsWith('#') ? hash : `#${hash}`;
+      const target = sections.find((section) => section.id === targetId.slice(1)) || sections[0];
+
+      sections.forEach((section) => {
+        section.classList.toggle('active', section === target);
+      });
+
+      navLinks.forEach((link) => {
+        const isActive = link.getAttribute('href') === targetId;
+        link.classList.toggle('active', isActive);
+        link.setAttribute('aria-current', isActive ? 'page' : 'false');
+      });
+    }
+
+    navLinks.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const hash = link.getAttribute('href');
+        if (!hash || !hash.startsWith('#')) return;
+
+        event.preventDefault();
+        history.pushState(null, '', hash);
+        showSection(hash);
+      });
+    });
+
+    window.addEventListener('hashchange', () => {
+      showSection(location.hash || '#introduccion');
+    });
+
+    setupExerciseTabs();
+    showSection(location.hash || '#introduccion');
+  </script>
 </body>
 </html>

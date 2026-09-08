@@ -57,12 +57,36 @@ nav a {
   font-weight: 700;
   padding: .65rem .85rem;
   border-radius: 9px;
+  transition: background-color .2s ease, color .2s ease;
 }
-nav a:hover { background: #eef2f8; }
-main { padding: 2rem 1rem 5rem; }
+nav a:hover,
+nav a.active {
+  background: #eef2f8;
+  color: var(--primary-dark);
+}
+main {
+  position: relative;
+  padding: 2rem 1rem 5rem;
+  min-height: 600px;
+}
 section {
+  display: none;
   scroll-margin-top: 75px;
   margin-bottom: 4rem;
+  animation: slideIn .35s ease;
+}
+section.active {
+  display: block;
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 .intro {
   color: var(--muted);
@@ -79,6 +103,45 @@ section {
   border-radius: 15px;
   padding: 1.25rem;
 }
+.component-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+.component-card {
+  background: #f8f9fe;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.8rem;
+}
+.component-image {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 90px;
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+  font-size: 2rem;
+  background: linear-gradient(135deg, #dfe8ff, #eef4ff);
+}
+.component-card h4 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+.component-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.component-arduino { background: linear-gradient(135deg, #dbeafe, #eff6ff); }
+.component-protoboard { background: linear-gradient(135deg, #dcfce7, #f0fdf4); }
+.component-led { background: linear-gradient(135deg, #fef3c7, #fff7ed); }
+.component-resistor { background: linear-gradient(135deg, #ede9fe, #f5f3ff); }
+.component-button { background: linear-gradient(135deg, #fee2e2, #fef2f2); }
+.component-sensor { background: linear-gradient(135deg, #d1fae5, #ecfdf5); }
+.component-motor { background: linear-gradient(135deg, #e0e7ff, #eef2ff); }
 .callout {
   background: #fffdf5;
   border-left: 6px solid var(--accent);
@@ -95,8 +158,39 @@ section {
   border: 2px solid var(--primary);
   background: #f5f7ff;
 }
+.exercise-tabs {
+  margin-top: 1.5rem;
+}
+.exercise-tablist {
+  display: flex;
+  gap: .45rem;
+  overflow-x: auto;
+  border-bottom: 2px solid var(--border);
+  padding: 0 .25rem;
+}
+.exercise-tab {
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: .7rem .85rem .6rem;
+  white-space: nowrap;
+}
+.exercise-tab:hover,
+.exercise-tab.active {
+  color: var(--primary-dark);
+  border-bottom-color: var(--primary);
+}
+.exercise-panel {
+  margin-top: 1rem;
+}
+.exercise-panel[hidden] {
+  display: none;
+}
 code {
-  background: #e9edf5;
   border-radius: 5px;
   padding: .1rem .35rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
